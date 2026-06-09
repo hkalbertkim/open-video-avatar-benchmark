@@ -20,6 +20,12 @@ candidates:
     status: RUNNABLE_METADATA_READY
     claimed_runtime: "30fps+ on NVIDIA Tesla V100; fp16 example reports roughly 5 minutes for an 8-second video on RTX 3050 Ti Laptop GPU."
     install_risk: "Requires CUDA/PyTorch, MMLab packages, FFmpeg, Whisper, DWPose, face parsing, SyncNet, VAE, and other component weights."
+    sample_command_known: "Known: official inference.sh and Python module examples are documented."
+    custom_input_readiness: "Likely ready for image_audio and video_audio after local permitted inputs and weights are prepared."
+    known_setup_risks: "CUDA/PyTorch, MMLab packages, FFmpeg, Whisper, DWPose, face parsing, SyncNet, VAE, and other component weights."
+    redistribution_note: "Do not redistribute MuseTalk or dependency weights from this benchmark repo."
+    commercial_caution: "Official README states code is MIT and trained model is commercially available, but third-party component licenses and test-data terms must be checked separately."
+    remaining_check_required: "Third-party component licenses and test-media terms need per-run review."
     license_caution: "Repository states MuseTalk code is MIT and trained model is commercially available, but third-party component licenses and bundled/test media terms must be checked separately."
     notes: "Official README reports inference code, training code, model weights, real-time inference code, Hugging Face weights, and arXiv technical report. No weights downloaded."
   - id: wav2lip
@@ -41,6 +47,12 @@ candidates:
     status: PARTIAL_METADATA_READY
     claimed_runtime: CHECK_REQUIRED
     install_risk: "Python 3.6-era project; requires FFmpeg, face detector checkpoint, pretrained Wav2Lip checkpoint, and older dependency stack."
+    sample_command_known: "Known: python inference.py --checkpoint_path ... --face ... --audio ..."
+    custom_input_readiness: "Technically likely ready for video_audio, but benchmark publication is license-constrained."
+    known_setup_risks: "Older Python 3.6-era environment, FFmpeg, face detector checkpoint, pretrained checkpoint, and non-commercial use restriction."
+    redistribution_note: "Do not redistribute Wav2Lip checkpoints or face detector weights."
+    commercial_caution: "Official README says open-source results should be research/academic/personal only and commercial use is strictly prohibited because models are trained on LRS2."
+    remaining_check_required: "Claimed runtime or real-time support was not verified from official source."
     license_caution: "Official README says open-source results should be used only for research, academic, or personal purposes and commercial use is strictly prohibited because models are trained on LRS2."
     notes: "Official README states complete training code, inference code, pretrained models, Google Drive checkpoints, and ACM MM 2020 paper. Runtime or real-time support was not verified from official source."
   - id: liveportrait
@@ -64,6 +76,12 @@ candidates:
     status: PARTIAL_METADATA_READY
     claimed_runtime: "macOS Apple Silicon note says it may be 20x slower than RTX 4090; no formal real-time claim verified."
     install_risk: "Requires FFmpeg, CUDA/PyTorch for Linux/Windows, X-Pose build for Animals mode, and pretrained weights; Windows CUDA versions above some releases may be unstable per README."
+    sample_command_known: "Known: python inference.py and python inference.py -s ... -d ..."
+    custom_input_readiness: "Ready for driving_video metadata; custom-input execution needs InsightFace/license review."
+    known_setup_risks: "CUDA/PyTorch, FFmpeg, optional X-Pose build, platform-specific CUDA notes, pretrained weights, and InsightFace model restrictions."
+    redistribution_note: "Do not redistribute LivePortrait pretrained weights or included third-party model files."
+    commercial_caution: "LICENSE notes InsightFace models are non-commercial research only and should be removed/replaced for commercial use."
+    remaining_check_required: "Training code availability remains unverified from official source."
     license_caution: "Repository license is MIT, but LICENSE notes InsightFace models are non-commercial research only and should be removed/replaced for commercial use."
     notes: "Official README provides inference code, pretrained weights, project page, arXiv paper, image and video source modes, and motion templates. Training code availability remains unverified."
   - id: ditto
@@ -87,6 +105,12 @@ candidates:
     status: RUNNABLE_METADATA_READY
     claimed_runtime: "Title and repository describe controllable realtime talking-head synthesis; TensorRT online/offline configs are provided."
     install_risk: "Tested on CentOS 7.2, A100, Python 3.10, TensorRT 8.6.1; provided TensorRT engines are Ampere_Plus and may require ONNX-to-TRT conversion for other GPUs."
+    sample_command_known: "Known: python inference.py --data_root ... --cfg_pkl ... --audio_path ... --source_path ... --output_path ..."
+    custom_input_readiness: "Metadata-ready for image_audio and video_audio after hardware and checkpoint path planning."
+    known_setup_risks: "TensorRT 8.6.1, CUDA, A100/Ampere_Plus assumptions, and possible ONNX-to-TRT conversion for other GPUs."
+    redistribution_note: "Do not redistribute Ditto checkpoints, ONNX files, TensorRT engines, or PyTorch weights from this benchmark repo."
+    commercial_caution: "Apache-2.0 repository license verified; auxiliary model/checkpoint terms still need review before publishing benchmark outputs."
+    remaining_check_required: "Auxiliary model and checkpoint terms need review before benchmark publication."
     license_caution: "Apache-2.0 repository license verified; still verify licenses for included auxiliary models and checkpoints before benchmark publication."
     notes: "Official README lists inference code, training branch, Hugging Face checkpoints, PyTorch model files, TensorRT assets, project page, and arXiv paper. No weights downloaded."
   - id: echomimic
@@ -110,6 +134,12 @@ candidates:
     status: PARTIAL_METADATA_READY
     claimed_runtime: "Official README states accelerated audio and audio+selected-landmark inference improved by 10x, from about 7 minutes per 240 frames to about 50 seconds per 240 frames on V100."
     install_risk: "Tested on CentOS 7.2/Ubuntu 22.04, CUDA >= 11.7, A100/RTX4090D/V100, Python 3.8/3.10/3.11; requires FFmpeg and multiple pretrained model components."
+    sample_command_known: "Known: python -u infer_audio2vid.py and python -u infer_audio2vid_pose.py"
+    custom_input_readiness: "Partially ready for image_audio and pose/driving modes; needs training-code verification and permitted local media."
+    known_setup_risks: "CUDA >= 11.7, FFmpeg static path, diffusion-style dependencies, multiple pretrained components, and demo-media provenance caution."
+    redistribution_note: "Do not redistribute EchoMimic checkpoints or dependency weights."
+    commercial_caution: "Demo-image provenance note in README means examples should not be reused as benchmark assets without independent permission."
+    remaining_check_required: "V1 training code was not verified from official README."
     license_caution: "Apache-2.0 repository license verified; demo images may come from image websites and should not be reused as benchmark media without permission."
     notes: "Official README lists audio-driven, pose-driven, audio+pose, and landmark/motion-sync inference scripts plus Hugging Face weights. Training code was not verified in the V1 README."
   - id: hallo2
@@ -132,5 +162,11 @@ candidates:
     status: RUNNABLE_METADATA_READY
     claimed_runtime: "Paper/repo describe long-duration and high-resolution portrait animation; no real-time claim verified."
     install_risk: "System requirement Ubuntu 20.04/22.04, CUDA 11.8; tested on A100; requires FFmpeg, PyTorch CUDA 11.8, Hugging Face model bundle, face analysis, audio separator, diffusion, wav2vec, and optional super-resolution assets."
+    sample_command_known: "Known: python scripts/inference_long.py --config ./configs/inference/long.yaml"
+    custom_input_readiness: "Metadata-ready for image_audio and text_audio; execution needs English WAV/source-image constraints and license review for high-res feature."
+    known_setup_risks: "Ubuntu/CUDA 11.8/A100 assumptions, many pretrained components, English WAV/source-image constraints, and S-Lab License 1.0 caution for high-resolution feature."
+    redistribution_note: "Do not redistribute Hallo2 pretrained models or third-party component weights."
+    commercial_caution: "GitHub shows MIT license, but README states the high-resolution feature is modified from CodeFormer and subject to S-Lab License 1.0."
+    remaining_check_required: "No real-time claim verified; high-resolution feature license terms need review before redistribution or publication."
     license_caution: "GitHub shows MIT license, but README states the high-resolution animation feature is a modified CodeFormer component and use/redistribution must comply with S-Lab License 1.0."
     notes: "Official README lists source code and pretrained weights released, Hugging Face weights, inference scripts, and training instructions for long-duration and high-resolution animation. No weights downloaded."
