@@ -1,12 +1,16 @@
 # Candidate Inventory
 
-Generated from `candidates/candidates.yaml`.
+Metadata verification timestamp: 2026-06-09 Asia/Seoul.
 
-| ID | Name | Category | Repo | License | Weights | Status | Adapter |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| musetalk | MuseTalk | audio-driven talking-head | https://github.com/TMElyralab/MuseTalk | CHECK_REQUIRED | CHECK_REQUIRED | NOT_RUN | adapters/musetalk.yaml |
-| wav2lip | Wav2Lip | audio-driven lip-sync | https://github.com/Rudrabha/Wav2Lip | CHECK_REQUIRED | CHECK_REQUIRED | NOT_RUN | adapters/wav2lip.yaml |
-| liveportrait | LivePortrait | portrait animation | https://github.com/KwaiVGI/LivePortrait | CHECK_REQUIRED | CHECK_REQUIRED | NOT_RUN | adapters/liveportrait.yaml |
-| ditto | Ditto | portrait or avatar animation | CHECK_REQUIRED | CHECK_REQUIRED | CHECK_REQUIRED | NOT_RUN | adapters/ditto.yaml |
-| echomimic | EchoMimic | audio-driven portrait animation | CHECK_REQUIRED | CHECK_REQUIRED | CHECK_REQUIRED | NOT_RUN | adapters/echomimic.yaml |
-| hallo2 | Hallo2 | audio-driven portrait animation | CHECK_REQUIRED | CHECK_REQUIRED | CHECK_REQUIRED | NOT_RUN | adapters/hallo2.yaml |
+Source policy: fields in this table are based on official public sources where possible: candidate GitHub repositories, official project pages, official model cards, and paper/arXiv pages. No repositories were cloned, no weights were downloaded, and no inference was run. If a field could not be verified from official sources, it remains `CHECK_REQUIRED`.
+
+Report automation note: `scripts/update_reports.py` was run and can regenerate a compact inventory, but it does not yet preserve this richer verification table. The report generator needs a later upgrade before this file should be fully automated.
+
+| ID | Name | Category | Repo | Paper / Project | License | Weights Status | Training Code Status | Inference Code Status | Metadata Status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| musetalk | MuseTalk | audio-driven lip-sync / talking-head | https://github.com/TMElyralab/MuseTalk | Paper: https://arxiv.org/abs/2410.10122; Project/model: https://huggingface.co/TMElyralab/MuseTalk | MIT | AVAILABLE_PUBLIC via Hugging Face | AVAILABLE | AVAILABLE | RUNNABLE_METADATA_READY | Official README reports inference code, training code, weights, real-time inference code, and 30fps+ on Tesla V100; third-party component licenses and test media restrictions still need per-run review. |
+| wav2lip | Wav2Lip | audio-driven lip-sync | https://github.com/Rudrabha/Wav2Lip | Paper: https://arxiv.org/abs/2008.10010; Project: https://cvit.iiit.ac.in/research/projects/cvit-projects/wav2lip | NON_COMMERCIAL_RESEARCH_PERSONAL_ONLY | AVAILABLE_PUBLIC_LINKED via official Google Drive links | AVAILABLE | AVAILABLE | PARTIAL_METADATA_READY | Official README states complete training/inference code and pretrained models, but commercial use is prohibited and claimed runtime remains `CHECK_REQUIRED`. |
+| liveportrait | LivePortrait | portrait animation / video-to-video portrait editing | https://github.com/KlingAIResearch/LivePortrait | Paper: https://arxiv.org/abs/2407.03168; Project: https://liveportrait.github.io | MIT_WITH_INSIGHTFACE_NONCOMMERCIAL_MODEL_CAUTION | AVAILABLE_PUBLIC via Hugging Face / Google Drive / Baidu Yun | CHECK_REQUIRED | AVAILABLE | PARTIAL_METADATA_READY | Official README provides inference code and public weights; LICENSE warns InsightFace models are non-commercial research only and should be replaced for commercial use. |
+| ditto | Ditto | controllable real-time talking-head synthesis | https://github.com/antgroup/ditto-talkinghead | Paper: https://arxiv.org/abs/2411.19509; Project: https://digital-avatar.github.io/ai/Ditto/ | Apache-2.0 | AVAILABLE_PUBLIC via Hugging Face | AVAILABLE_TRAIN_BRANCH | AVAILABLE | RUNNABLE_METADATA_READY | Official README lists inference branch, training branch, Hugging Face checkpoints, PyTorch model, TensorRT assets, and real-time framing. |
+| echomimic | EchoMimic | audio-driven portrait animation with landmark / pose control | https://github.com/antgroup/echomimic | Paper: https://arxiv.org/abs/2407.08136; Project: https://antgroup.github.io/ai/echomimic/ | Apache-2.0 | AVAILABLE_PUBLIC via Hugging Face | CHECK_REQUIRED | AVAILABLE | PARTIAL_METADATA_READY | Official README lists audio, pose, and audio+pose inference plus weights; V1 training code was not verified; demo-image provenance requires caution. |
+| hallo2 | Hallo2 | long-duration high-resolution audio-driven portrait animation | https://github.com/fudan-generative-vision/hallo2 | Paper: https://arxiv.org/abs/2410.07718; Project: https://fudan-generative-vision.github.io/hallo2/ | MIT_WITH_SLAB_HIGH_RES_CAUTION | AVAILABLE_PUBLIC via Hugging Face | AVAILABLE | AVAILABLE | RUNNABLE_METADATA_READY | Official README lists source code, pretrained weights, inference, and training; high-resolution feature carries S-Lab License 1.0 caution. |

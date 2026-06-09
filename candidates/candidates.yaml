@@ -1,102 +1,136 @@
 candidates:
   - id: musetalk
     name: MuseTalk
-    category: audio-driven talking-head
+    category: audio-driven lip-sync / talking-head
     repo_url: https://github.com/TMElyralab/MuseTalk
-    paper_url: CHECK_REQUIRED
-    license: CHECK_REQUIRED
-    weights_status: CHECK_REQUIRED
-    training_code_status: CHECK_REQUIRED
-    inference_code_status: CHECK_REQUIRED
+    project_url: https://huggingface.co/TMElyralab/MuseTalk
+    paper_url: https://arxiv.org/abs/2410.10122
+    license: MIT
+    weights_status: AVAILABLE_PUBLIC
+    weights_source: https://huggingface.co/TMElyralab/MuseTalk
+    training_code_status: AVAILABLE
+    inference_code_status: AVAILABLE
     input_modes:
-      - audio
-      - portrait video or image
+      - image_audio
+      - video_audio
     output_modes:
-      - talking-head video
+      - video
+      - frames
     adapter: adapters/musetalk.yaml
-    status: NOT_RUN
-    notes: Initial registry placeholder; verify license, weights, paper, and runnable commit before benchmarking.
+    status: RUNNABLE_METADATA_READY
+    claimed_runtime: "30fps+ on NVIDIA Tesla V100; fp16 example reports roughly 5 minutes for an 8-second video on RTX 3050 Ti Laptop GPU."
+    install_risk: "Requires CUDA/PyTorch, MMLab packages, FFmpeg, Whisper, DWPose, face parsing, SyncNet, VAE, and other component weights."
+    license_caution: "Repository states MuseTalk code is MIT and trained model is commercially available, but third-party component licenses and bundled/test media terms must be checked separately."
+    notes: "Official README reports inference code, training code, model weights, real-time inference code, Hugging Face weights, and arXiv technical report. No weights downloaded."
   - id: wav2lip
     name: Wav2Lip
     category: audio-driven lip-sync
     repo_url: https://github.com/Rudrabha/Wav2Lip
-    paper_url: CHECK_REQUIRED
-    license: CHECK_REQUIRED
-    weights_status: CHECK_REQUIRED
-    training_code_status: CHECK_REQUIRED
-    inference_code_status: CHECK_REQUIRED
+    project_url: https://cvit.iiit.ac.in/research/projects/cvit-projects/wav2lip
+    paper_url: https://arxiv.org/abs/2008.10010
+    license: NON_COMMERCIAL_RESEARCH_PERSONAL_ONLY
+    weights_status: AVAILABLE_PUBLIC_LINKED
+    weights_source: "Google Drive links from official README; face detector weight link also listed."
+    training_code_status: AVAILABLE
+    inference_code_status: AVAILABLE
     input_modes:
-      - audio
-      - face video
+      - video_audio
     output_modes:
-      - lip-synced video
+      - video
     adapter: adapters/wav2lip.yaml
-    status: NOT_RUN
-    notes: Initial registry placeholder; verify license, weights, paper, and runnable commit before benchmarking.
+    status: PARTIAL_METADATA_READY
+    claimed_runtime: CHECK_REQUIRED
+    install_risk: "Python 3.6-era project; requires FFmpeg, face detector checkpoint, pretrained Wav2Lip checkpoint, and older dependency stack."
+    license_caution: "Official README says open-source results should be used only for research, academic, or personal purposes and commercial use is strictly prohibited because models are trained on LRS2."
+    notes: "Official README states complete training code, inference code, pretrained models, Google Drive checkpoints, and ACM MM 2020 paper. Runtime or real-time support was not verified from official source."
   - id: liveportrait
     name: LivePortrait
-    category: portrait animation
-    repo_url: https://github.com/KwaiVGI/LivePortrait
-    paper_url: CHECK_REQUIRED
-    license: CHECK_REQUIRED
-    weights_status: CHECK_REQUIRED
+    category: portrait animation / video-to-video portrait editing
+    repo_url: https://github.com/KlingAIResearch/LivePortrait
+    project_url: https://liveportrait.github.io
+    paper_url: https://arxiv.org/abs/2407.03168
+    license: MIT_WITH_INSIGHTFACE_NONCOMMERCIAL_MODEL_CAUTION
+    weights_status: AVAILABLE_PUBLIC
+    weights_source: "Hugging Face KlingTeam/LivePortrait, Google Drive, and Baidu Yun links from official README."
     training_code_status: CHECK_REQUIRED
-    inference_code_status: CHECK_REQUIRED
+    inference_code_status: AVAILABLE
     input_modes:
-      - source portrait
-      - driving video
+      - driving_video
+      - other
     output_modes:
-      - animated portrait video
+      - video
+      - motion
     adapter: adapters/liveportrait.yaml
-    status: NOT_RUN
-    notes: Initial registry placeholder; verify license, weights, paper, and runnable commit before benchmarking.
+    status: PARTIAL_METADATA_READY
+    claimed_runtime: "macOS Apple Silicon note says it may be 20x slower than RTX 4090; no formal real-time claim verified."
+    install_risk: "Requires FFmpeg, CUDA/PyTorch for Linux/Windows, X-Pose build for Animals mode, and pretrained weights; Windows CUDA versions above some releases may be unstable per README."
+    license_caution: "Repository license is MIT, but LICENSE notes InsightFace models are non-commercial research only and should be removed/replaced for commercial use."
+    notes: "Official README provides inference code, pretrained weights, project page, arXiv paper, image and video source modes, and motion templates. Training code availability remains unverified."
   - id: ditto
     name: Ditto
-    category: portrait or avatar animation
-    repo_url: CHECK_REQUIRED
-    paper_url: CHECK_REQUIRED
-    license: CHECK_REQUIRED
-    weights_status: CHECK_REQUIRED
-    training_code_status: CHECK_REQUIRED
-    inference_code_status: CHECK_REQUIRED
+    category: controllable real-time talking-head synthesis
+    repo_url: https://github.com/antgroup/ditto-talkinghead
+    project_url: https://digital-avatar.github.io/ai/Ditto/
+    paper_url: https://arxiv.org/abs/2411.19509
+    license: Apache-2.0
+    weights_status: AVAILABLE_PUBLIC
+    weights_source: https://huggingface.co/digital-avatar/ditto-talkinghead
+    training_code_status: AVAILABLE_TRAIN_BRANCH
+    inference_code_status: AVAILABLE
     input_modes:
-      - CHECK_REQUIRED
+      - image_audio
+      - video_audio
     output_modes:
-      - CHECK_REQUIRED
+      - video
+      - motion
     adapter: adapters/ditto.yaml
-    status: NOT_RUN
-    notes: Initial registry placeholder; disambiguate candidate repository and verify public availability before benchmarking.
+    status: RUNNABLE_METADATA_READY
+    claimed_runtime: "Title and repository describe controllable realtime talking-head synthesis; TensorRT online/offline configs are provided."
+    install_risk: "Tested on CentOS 7.2, A100, Python 3.10, TensorRT 8.6.1; provided TensorRT engines are Ampere_Plus and may require ONNX-to-TRT conversion for other GPUs."
+    license_caution: "Apache-2.0 repository license verified; still verify licenses for included auxiliary models and checkpoints before benchmark publication."
+    notes: "Official README lists inference code, training branch, Hugging Face checkpoints, PyTorch model files, TensorRT assets, project page, and arXiv paper. No weights downloaded."
   - id: echomimic
     name: EchoMimic
-    category: audio-driven portrait animation
-    repo_url: CHECK_REQUIRED
-    paper_url: CHECK_REQUIRED
-    license: CHECK_REQUIRED
-    weights_status: CHECK_REQUIRED
+    category: audio-driven portrait animation with landmark / pose control
+    repo_url: https://github.com/antgroup/echomimic
+    project_url: https://antgroup.github.io/ai/echomimic/
+    paper_url: https://arxiv.org/abs/2407.08136
+    license: Apache-2.0
+    weights_status: AVAILABLE_PUBLIC
+    weights_source: https://huggingface.co/BadToBest/EchoMimic
     training_code_status: CHECK_REQUIRED
-    inference_code_status: CHECK_REQUIRED
+    inference_code_status: AVAILABLE
     input_modes:
-      - audio
-      - reference portrait
+      - image_audio
+      - driving_video
+      - other
     output_modes:
-      - talking portrait video
+      - video
     adapter: adapters/echomimic.yaml
-    status: NOT_RUN
-    notes: Initial registry placeholder; verify official repository, license, and weights before benchmarking.
+    status: PARTIAL_METADATA_READY
+    claimed_runtime: "Official README states accelerated audio and audio+selected-landmark inference improved by 10x, from about 7 minutes per 240 frames to about 50 seconds per 240 frames on V100."
+    install_risk: "Tested on CentOS 7.2/Ubuntu 22.04, CUDA >= 11.7, A100/RTX4090D/V100, Python 3.8/3.10/3.11; requires FFmpeg and multiple pretrained model components."
+    license_caution: "Apache-2.0 repository license verified; demo images may come from image websites and should not be reused as benchmark media without permission."
+    notes: "Official README lists audio-driven, pose-driven, audio+pose, and landmark/motion-sync inference scripts plus Hugging Face weights. Training code was not verified in the V1 README."
   - id: hallo2
     name: Hallo2
-    category: audio-driven portrait animation
-    repo_url: CHECK_REQUIRED
-    paper_url: CHECK_REQUIRED
-    license: CHECK_REQUIRED
-    weights_status: CHECK_REQUIRED
-    training_code_status: CHECK_REQUIRED
-    inference_code_status: CHECK_REQUIRED
+    category: long-duration high-resolution audio-driven portrait animation
+    repo_url: https://github.com/fudan-generative-vision/hallo2
+    project_url: https://fudan-generative-vision.github.io/hallo2/
+    paper_url: https://arxiv.org/abs/2410.07718
+    license: MIT_WITH_SLAB_HIGH_RES_CAUTION
+    weights_status: AVAILABLE_PUBLIC
+    weights_source: https://huggingface.co/fudan-generative-ai/hallo2
+    training_code_status: AVAILABLE
+    inference_code_status: AVAILABLE
     input_modes:
-      - audio
-      - reference portrait
+      - image_audio
+      - text_audio
     output_modes:
-      - talking portrait video
+      - video
     adapter: adapters/hallo2.yaml
-    status: NOT_RUN
-    notes: Initial registry placeholder; verify official repository, license, and weights before benchmarking.
+    status: RUNNABLE_METADATA_READY
+    claimed_runtime: "Paper/repo describe long-duration and high-resolution portrait animation; no real-time claim verified."
+    install_risk: "System requirement Ubuntu 20.04/22.04, CUDA 11.8; tested on A100; requires FFmpeg, PyTorch CUDA 11.8, Hugging Face model bundle, face analysis, audio separator, diffusion, wav2vec, and optional super-resolution assets."
+    license_caution: "GitHub shows MIT license, but README states the high-resolution animation feature is a modified CodeFormer component and use/redistribution must comply with S-Lab License 1.0."
+    notes: "Official README lists source code and pretrained weights released, Hugging Face weights, inference scripts, and training instructions for long-duration and high-resolution animation. No weights downloaded."

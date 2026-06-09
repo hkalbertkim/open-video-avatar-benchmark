@@ -2,21 +2,22 @@ id: wav2lip
 name: Wav2Lip
 repo_url: https://github.com/Rudrabha/Wav2Lip
 env:
-  python: CHECK_REQUIRED
-  hardware: CHECK_REQUIRED
+  python: "3.6 listed in official README"
+  hardware: "GPU recommended; exact runtime support CHECK_REQUIRED"
 install:
   commands:
-    - "echo '[dry-run] inspect Wav2Lip installation instructions'"
+    - "echo '[dry-run] prepare Python 3.6-era dependencies and FFmpeg per official README'"
 weights:
-  status: CHECK_REQUIRED
+  status: AVAILABLE_PUBLIC_LINKED
+  source: "Official README links Google Drive checkpoints and face detector weight."
   commands:
-    - "echo '[dry-run] verify Wav2Lip weight access and license'"
+    - "echo '[dry-run] verify Wav2Lip checkpoint, GAN checkpoint, and S3FD face detector links without downloading'"
 smoke:
   commands:
-    - "echo '[dry-run] plan Wav2Lip official sample smoke test'"
+    - "echo '[dry-run] plan inference.py smoke test with checkpoint, face video, and audio path placeholders'"
 benchmark_inputs:
   commands:
-    - "echo '[dry-run] map standard audio and face-video inputs for Wav2Lip'"
+    - "echo '[dry-run] map standard video_audio benchmark inputs for Wav2Lip'"
 expected_outputs:
   - outputs/wav2lip/smoke.mp4
-notes: Placeholder adapter; no downloads or inference are performed.
+notes: "Official README states complete training code, inference code, and pretrained models are available, but use is research/academic/personal only and commercial use is prohibited."

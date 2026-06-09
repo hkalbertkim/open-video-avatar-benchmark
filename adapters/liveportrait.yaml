@@ -1,22 +1,23 @@
 id: liveportrait
 name: LivePortrait
-repo_url: https://github.com/KwaiVGI/LivePortrait
+repo_url: https://github.com/KlingAIResearch/LivePortrait
 env:
-  python: CHECK_REQUIRED
-  hardware: CHECK_REQUIRED
+  python: "3.10 in official README examples"
+  hardware: "CUDA/PyTorch for Linux/Windows; Apple Silicon supported with slower MPS fallback"
 install:
   commands:
-    - "echo '[dry-run] inspect LivePortrait installation instructions'"
+    - "echo '[dry-run] prepare conda Python 3.10, PyTorch, FFmpeg, and optional X-Pose build for Animals mode'"
 weights:
-  status: CHECK_REQUIRED
+  status: AVAILABLE_PUBLIC
+  source: "Hugging Face KlingTeam/LivePortrait plus Google Drive/Baidu Yun alternatives."
   commands:
-    - "echo '[dry-run] verify LivePortrait weight access and license'"
+    - "echo '[dry-run] verify LivePortrait pretrained weight sources and InsightFace model restrictions before download'"
 smoke:
   commands:
-    - "echo '[dry-run] plan LivePortrait official sample smoke test'"
+    - "echo '[dry-run] plan python inference.py smoke test with source portrait and driving video placeholders'"
 benchmark_inputs:
   commands:
-    - "echo '[dry-run] map standard source and driving inputs for LivePortrait'"
+    - "echo '[dry-run] map standard driving_video and source image/video benchmark inputs for LivePortrait'"
 expected_outputs:
   - outputs/liveportrait/smoke.mp4
-notes: Placeholder adapter; no downloads or inference are performed.
+notes: "Official README provides inference code and public weights; training code availability remains CHECK_REQUIRED. License includes InsightFace non-commercial model caution."

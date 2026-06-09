@@ -1,22 +1,23 @@
 id: ditto
 name: Ditto
-repo_url: CHECK_REQUIRED
+repo_url: https://github.com/antgroup/ditto-talkinghead
 env:
-  python: CHECK_REQUIRED
-  hardware: CHECK_REQUIRED
+  python: "3.10 tested by official README"
+  hardware: "A100/TensorRT 8.6.1 tested; Ampere_Plus TensorRT engines supplied"
 install:
   commands:
-    - "echo '[dry-run] identify the intended Ditto repository and installation instructions'"
+    - "echo '[dry-run] prepare conda env or minimal pip stack with TensorRT, CUDA, FFmpeg, and NumPy 2.0.1 per official README'"
 weights:
-  status: CHECK_REQUIRED
+  status: AVAILABLE_PUBLIC
+  source: https://huggingface.co/digital-avatar/ditto-talkinghead
   commands:
-    - "echo '[dry-run] verify Ditto weight access and license'"
+    - "echo '[dry-run] verify Ditto TensorRT, ONNX, and PyTorch checkpoint sources without downloading'"
 smoke:
   commands:
-    - "echo '[dry-run] plan Ditto official sample smoke test after source verification'"
+    - "echo '[dry-run] plan inference.py smoke test using source image/video, audio, cfg_pkl, and checkpoint root placeholders'"
 benchmark_inputs:
   commands:
-    - "echo '[dry-run] map standard benchmark inputs after candidate disambiguation'"
+    - "echo '[dry-run] map standard image_audio and video_audio benchmark inputs for Ditto'"
 expected_outputs:
   - outputs/ditto/smoke.mp4
-notes: Placeholder adapter; candidate source requires disambiguation before execution.
+notes: "Official repository is antgroup/ditto-talkinghead. README lists inference branch, training branch, Hugging Face checkpoints, PyTorch model, TensorRT assets, and Apache-2.0 license."

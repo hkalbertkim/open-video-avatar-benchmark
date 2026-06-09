@@ -1,22 +1,16 @@
 # Reproducibility Matrix
 
-The reproducibility matrix will track the evidence needed to reproduce each candidate result.
+Metadata verification timestamp: 2026-06-09 Asia/Seoul.
 
-Planned columns:
+Source policy: this matrix records metadata verified from official GitHub repositories, official project pages, official model cards, and paper/arXiv pages. No candidate repository was cloned, no model weights were downloaded, no dependencies were installed, and no inference was run.
 
-- Candidate ID
-- Source code URL
-- Source code commit hash
-- License status
-- Weight access status
-- Training code status
-- Inference code status
-- Install result
-- Environment lock or container reference
-- Official sample run result
-- Custom benchmark input result
-- Runtime and hardware notes
-- Failure label
-- Appendix evidence path
+| Candidate | Code Availability | Weights Availability | Training Support | Inference Support | Install Risk | Sample Command Known | Custom Input Readiness |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| musetalk | Official GitHub repo verified | Hugging Face weights and scripts referenced | Available per README | Available; normal and real-time inference scripts documented | High: CUDA/PyTorch, MMLab stack, FFmpeg, multiple component weights | Known as official `inference.sh` / Python module examples | Likely ready for image_audio and video_audio after local permitted inputs and weights are prepared |
+| wav2lip | Official GitHub repo verified | Official README links Google Drive checkpoints and face detector model | Available per README | Available via `inference.py` | Medium/high: older Python 3.6-era environment, FFmpeg, face detector checkpoint, non-commercial data/license constraints | Known as `python inference.py --checkpoint_path ... --face ... --audio ...` | Technically likely ready for video_audio, but benchmark publication is license-constrained |
+| liveportrait | Official GitHub repo verified | Hugging Face, Google Drive, and Baidu Yun sources referenced | CHECK_REQUIRED | Available via `inference.py`, Gradio, image/video source options | Medium/high: CUDA/PyTorch, FFmpeg, optional X-Pose build, platform-specific notes | Known as `python inference.py` and `python inference.py -s ... -d ...` | Ready for driving_video metadata; custom-input execution needs InsightFace/license review |
+| ditto | Official GitHub repo verified | Hugging Face checkpoint repo referenced | Available on `train` branch | Available via `inference.py`; TensorRT and PyTorch model paths documented | High: TensorRT 8.6.1, CUDA, A100/Ampere_Plus assumptions, possible ONNX-to-TRT conversion | Known as `python inference.py --data_root ... --cfg_pkl ... --audio_path ... --source_path ... --output_path ...` | Metadata-ready for image_audio and video_audio after hardware and checkpoint path planning |
+| echomimic | Official GitHub repo verified | Hugging Face checkpoint repo referenced | CHECK_REQUIRED for V1 | Available via audio, pose, audio+pose, and web UI scripts | High: CUDA >= 11.7, FFmpeg static path, large diffusion-style dependencies and multiple weights | Known as `python -u infer_audio2vid.py` / `python -u infer_audio2vid_pose.py` | Partially ready for image_audio and pose/driving modes; needs training-code verification and permitted local media |
+| hallo2 | Official GitHub repo verified | Hugging Face model bundle referenced | Available per README training section | Available via long-duration inference and high-resolution scripts | High: Ubuntu/CUDA 11.8/A100 assumptions, many pretrained components, optional super-resolution assets | Known as `python scripts/inference_long.py --config ./configs/inference/long.yaml` | Metadata-ready for image_audio and text_audio; execution needs English WAV/source-image constraints and license review for high-res feature |
 
-Failure and blocked states are valid benchmark outcomes and should be recorded with the same detail as successful runs.
+Failure and blocked states remain first-class benchmark outcomes. Execution appendices should capture commit hash, exact environment, hardware, input manifest, output manifest, metrics, and failure label for both successful and failed candidates.

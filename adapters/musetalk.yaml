@@ -2,21 +2,22 @@ id: musetalk
 name: MuseTalk
 repo_url: https://github.com/TMElyralab/MuseTalk
 env:
-  python: CHECK_REQUIRED
-  hardware: CHECK_REQUIRED
+  python: "3.10 recommended by official README"
+  hardware: "CUDA/PyTorch; real-time claim is 30fps+ on NVIDIA Tesla V100"
 install:
   commands:
-    - "echo '[dry-run] inspect MuseTalk installation instructions'"
+    - "echo '[dry-run] prepare Python 3.10, PyTorch, MMLab packages, and FFmpeg per official README'"
 weights:
-  status: CHECK_REQUIRED
+  status: AVAILABLE_PUBLIC
+  source: https://huggingface.co/TMElyralab/MuseTalk
   commands:
-    - "echo '[dry-run] verify MuseTalk weight access and license'"
+    - "echo '[dry-run] verify MuseTalk, VAE, Whisper, DWPose, SyncNet, face parsing, and ResNet weight licenses before download'"
 smoke:
   commands:
-    - "echo '[dry-run] plan MuseTalk official sample smoke test'"
+    - "echo '[dry-run] plan official MuseTalk inference.sh v1.5 normal smoke test'"
 benchmark_inputs:
   commands:
-    - "echo '[dry-run] map standard audio and portrait inputs for MuseTalk'"
+    - "echo '[dry-run] map standard image_audio and video_audio benchmark inputs for MuseTalk'"
 expected_outputs:
   - outputs/musetalk/smoke.mp4
-notes: Placeholder adapter; no downloads or inference are performed.
+notes: "Official source reports inference code, training code, weights, and real-time inference code. No downloads or inference are performed by this adapter."

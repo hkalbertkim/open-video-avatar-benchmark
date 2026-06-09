@@ -1,22 +1,23 @@
 id: echomimic
 name: EchoMimic
-repo_url: CHECK_REQUIRED
+repo_url: https://github.com/antgroup/echomimic
 env:
-  python: CHECK_REQUIRED
-  hardware: CHECK_REQUIRED
+  python: "3.8 / 3.10 / 3.11 tested by official README"
+  hardware: "CUDA >= 11.7; A100, RTX4090D, and V100 tested"
 install:
   commands:
-    - "echo '[dry-run] identify EchoMimic official repository and installation instructions'"
+    - "echo '[dry-run] prepare conda environment, requirements.txt, and FFmpeg per official README'"
 weights:
-  status: CHECK_REQUIRED
+  status: AVAILABLE_PUBLIC
+  source: https://huggingface.co/BadToBest/EchoMimic
   commands:
-    - "echo '[dry-run] verify EchoMimic weight access and license'"
+    - "echo '[dry-run] verify EchoMimic main checkpoints and third-party component licenses before download'"
 smoke:
   commands:
-    - "echo '[dry-run] plan EchoMimic official sample smoke test'"
+    - "echo '[dry-run] plan infer_audio2vid.py and infer_audio2vid_pose.py smoke tests with local permitted media placeholders'"
 benchmark_inputs:
   commands:
-    - "echo '[dry-run] map standard audio and portrait inputs for EchoMimic'"
+    - "echo '[dry-run] map standard image_audio, driving_video, and pose/landmark benchmark inputs for EchoMimic'"
 expected_outputs:
   - outputs/echomimic/smoke.mp4
-notes: Placeholder adapter; no downloads or inference are performed.
+notes: "Official README lists audio-driven, pose-driven, audio+pose, and motion-sync inference paths. Training code remains CHECK_REQUIRED for V1."

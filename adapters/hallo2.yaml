@@ -1,22 +1,23 @@
 id: hallo2
 name: Hallo2
-repo_url: CHECK_REQUIRED
+repo_url: https://github.com/fudan-generative-vision/hallo2
 env:
-  python: CHECK_REQUIRED
-  hardware: CHECK_REQUIRED
+  python: "3.10 in official README"
+  hardware: "Ubuntu 20.04/22.04, CUDA 11.8, tested on A100"
 install:
   commands:
-    - "echo '[dry-run] identify Hallo2 official repository and installation instructions'"
+    - "echo '[dry-run] prepare conda Python 3.10, PyTorch CUDA 11.8, FFmpeg, and requirements.txt per official README'"
 weights:
-  status: CHECK_REQUIRED
+  status: AVAILABLE_PUBLIC
+  source: https://huggingface.co/fudan-generative-ai/hallo2
   commands:
-    - "echo '[dry-run] verify Hallo2 weight access and license'"
+    - "echo '[dry-run] verify Hallo2 Hugging Face bundle and third-party model licenses before download'"
 smoke:
   commands:
-    - "echo '[dry-run] plan Hallo2 official sample smoke test'"
+    - "echo '[dry-run] plan scripts/inference_long.py smoke test with source image and driving audio placeholders'"
 benchmark_inputs:
   commands:
-    - "echo '[dry-run] map standard audio and portrait inputs for Hallo2'"
+    - "echo '[dry-run] map standard image_audio and text_audio benchmark inputs for Hallo2'"
 expected_outputs:
   - outputs/hallo2/smoke.mp4
-notes: Placeholder adapter; no downloads or inference are performed.
+notes: "Official README lists source code, pretrained weights, long-duration inference, high-resolution feature, and training instructions. High-resolution feature has S-Lab License 1.0 caution."
