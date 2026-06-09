@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Video Avatar Benchmark Candidate Registry",
+  "type": "object",
+  "required": ["candidates"],
+  "properties": {
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "category",
+          "repo_url",
+          "paper_url",
+          "license",
+          "weights_status",
+          "training_code_status",
+          "inference_code_status",
+          "input_modes",
+          "output_modes",
+          "adapter",
+          "status",
+          "notes"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+          "name": { "type": "string" },
+          "category": { "type": "string" },
+          "repo_url": { "type": "string" },
+          "paper_url": { "type": "string" },
+          "license": { "type": "string" },
+          "weights_status": { "type": "string" },
+          "training_code_status": { "type": "string" },
+          "inference_code_status": { "type": "string" },
+          "input_modes": { "type": "array", "items": { "type": "string" } },
+          "output_modes": { "type": "array", "items": { "type": "string" } },
+          "adapter": { "type": "string" },
+          "status": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

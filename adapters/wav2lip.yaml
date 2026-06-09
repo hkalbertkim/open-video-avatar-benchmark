@@ -1,0 +1,22 @@
+id: wav2lip
+name: Wav2Lip
+repo_url: https://github.com/Rudrabha/Wav2Lip
+env:
+  python: CHECK_REQUIRED
+  hardware: CHECK_REQUIRED
+install:
+  commands:
+    - "echo '[dry-run] inspect Wav2Lip installation instructions'"
+weights:
+  status: CHECK_REQUIRED
+  commands:
+    - "echo '[dry-run] verify Wav2Lip weight access and license'"
+smoke:
+  commands:
+    - "echo '[dry-run] plan Wav2Lip official sample smoke test'"
+benchmark_inputs:
+  commands:
+    - "echo '[dry-run] map standard audio and face-video inputs for Wav2Lip'"
+expected_outputs:
+  - outputs/wav2lip/smoke.mp4
+notes: Placeholder adapter; no downloads or inference are performed.

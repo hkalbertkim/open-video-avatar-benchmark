@@ -1,0 +1,22 @@
+id: musetalk
+name: MuseTalk
+repo_url: https://github.com/TMElyralab/MuseTalk
+env:
+  python: CHECK_REQUIRED
+  hardware: CHECK_REQUIRED
+install:
+  commands:
+    - "echo '[dry-run] inspect MuseTalk installation instructions'"
+weights:
+  status: CHECK_REQUIRED
+  commands:
+    - "echo '[dry-run] verify MuseTalk weight access and license'"
+smoke:
+  commands:
+    - "echo '[dry-run] plan MuseTalk official sample smoke test'"
+benchmark_inputs:
+  commands:
+    - "echo '[dry-run] map standard audio and portrait inputs for MuseTalk'"
+expected_outputs:
+  - outputs/musetalk/smoke.mp4
+notes: Placeholder adapter; no downloads or inference are performed.

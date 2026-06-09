@@ -1,0 +1,22 @@
+inputs:
+  - id: synthetic_portrait_001
+    media_type: image
+    path: local_inputs/synthetic_portrait_001.png
+    provenance: synthetic
+    permission_basis: generated for benchmark use
+    allowed_use:
+      - local benchmark
+      - public report if output remains non-identifying
+    restrictions:
+      - do not replace with identity-bearing media without written permission
+    notes: Example only; file is not included in this repository.
+  - id: synthetic_voice_001
+    media_type: audio
+    path: local_inputs/synthetic_voice_001.wav
+    provenance: synthetic
+    permission_basis: generated for benchmark use
+    allowed_use:
+      - local benchmark
+    restrictions:
+      - verify synthesis license before publishing generated outputs
+    notes: Example only; file is not included in this repository.

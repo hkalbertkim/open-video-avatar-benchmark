@@ -1,0 +1,102 @@
+candidates:
+  - id: musetalk
+    name: MuseTalk
+    category: audio-driven talking-head
+    repo_url: https://github.com/TMElyralab/MuseTalk
+    paper_url: CHECK_REQUIRED
+    license: CHECK_REQUIRED
+    weights_status: CHECK_REQUIRED
+    training_code_status: CHECK_REQUIRED
+    inference_code_status: CHECK_REQUIRED
+    input_modes:
+      - audio
+      - portrait video or image
+    output_modes:
+      - talking-head video
+    adapter: adapters/musetalk.yaml
+    status: NOT_RUN
+    notes: Initial registry placeholder; verify license, weights, paper, and runnable commit before benchmarking.
+  - id: wav2lip
+    name: Wav2Lip
+    category: audio-driven lip-sync
+    repo_url: https://github.com/Rudrabha/Wav2Lip
+    paper_url: CHECK_REQUIRED
+    license: CHECK_REQUIRED
+    weights_status: CHECK_REQUIRED
+    training_code_status: CHECK_REQUIRED
+    inference_code_status: CHECK_REQUIRED
+    input_modes:
+      - audio
+      - face video
+    output_modes:
+      - lip-synced video
+    adapter: adapters/wav2lip.yaml
+    status: NOT_RUN
+    notes: Initial registry placeholder; verify license, weights, paper, and runnable commit before benchmarking.
+  - id: liveportrait
+    name: LivePortrait
+    category: portrait animation
+    repo_url: https://github.com/KwaiVGI/LivePortrait
+    paper_url: CHECK_REQUIRED
+    license: CHECK_REQUIRED
+    weights_status: CHECK_REQUIRED
+    training_code_status: CHECK_REQUIRED
+    inference_code_status: CHECK_REQUIRED
+    input_modes:
+      - source portrait
+      - driving video
+    output_modes:
+      - animated portrait video
+    adapter: adapters/liveportrait.yaml
+    status: NOT_RUN
+    notes: Initial registry placeholder; verify license, weights, paper, and runnable commit before benchmarking.
+  - id: ditto
+    name: Ditto
+    category: portrait or avatar animation
+    repo_url: CHECK_REQUIRED
+    paper_url: CHECK_REQUIRED
+    license: CHECK_REQUIRED
+    weights_status: CHECK_REQUIRED
+    training_code_status: CHECK_REQUIRED
+    inference_code_status: CHECK_REQUIRED
+    input_modes:
+      - CHECK_REQUIRED
+    output_modes:
+      - CHECK_REQUIRED
+    adapter: adapters/ditto.yaml
+    status: NOT_RUN
+    notes: Initial registry placeholder; disambiguate candidate repository and verify public availability before benchmarking.
+  - id: echomimic
+    name: EchoMimic
+    category: audio-driven portrait animation
+    repo_url: CHECK_REQUIRED
+    paper_url: CHECK_REQUIRED
+    license: CHECK_REQUIRED
+    weights_status: CHECK_REQUIRED
+    training_code_status: CHECK_REQUIRED
+    inference_code_status: CHECK_REQUIRED
+    input_modes:
+      - audio
+      - reference portrait
+    output_modes:
+      - talking portrait video
+    adapter: adapters/echomimic.yaml
+    status: NOT_RUN
+    notes: Initial registry placeholder; verify official repository, license, and weights before benchmarking.
+  - id: hallo2
+    name: Hallo2
+    category: audio-driven portrait animation
+    repo_url: CHECK_REQUIRED
+    paper_url: CHECK_REQUIRED
+    license: CHECK_REQUIRED
+    weights_status: CHECK_REQUIRED
+    training_code_status: CHECK_REQUIRED
+    inference_code_status: CHECK_REQUIRED
+    input_modes:
+      - audio
+      - reference portrait
+    output_modes:
+      - talking portrait video
+    adapter: adapters/hallo2.yaml
+    status: NOT_RUN
+    notes: Initial registry placeholder; verify official repository, license, and weights before benchmarking.

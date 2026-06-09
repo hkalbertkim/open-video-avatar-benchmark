@@ -1,0 +1,22 @@
+id: echomimic
+name: EchoMimic
+repo_url: CHECK_REQUIRED
+env:
+  python: CHECK_REQUIRED
+  hardware: CHECK_REQUIRED
+install:
+  commands:
+    - "echo '[dry-run] identify EchoMimic official repository and installation instructions'"
+weights:
+  status: CHECK_REQUIRED
+  commands:
+    - "echo '[dry-run] verify EchoMimic weight access and license'"
+smoke:
+  commands:
+    - "echo '[dry-run] plan EchoMimic official sample smoke test'"
+benchmark_inputs:
+  commands:
+    - "echo '[dry-run] map standard audio and portrait inputs for EchoMimic'"
+expected_outputs:
+  - outputs/echomimic/smoke.mp4
+notes: Placeholder adapter; no downloads or inference are performed.

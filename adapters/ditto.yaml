@@ -1,0 +1,22 @@
+id: ditto
+name: Ditto
+repo_url: CHECK_REQUIRED
+env:
+  python: CHECK_REQUIRED
+  hardware: CHECK_REQUIRED
+install:
+  commands:
+    - "echo '[dry-run] identify the intended Ditto repository and installation instructions'"
+weights:
+  status: CHECK_REQUIRED
+  commands:
+    - "echo '[dry-run] verify Ditto weight access and license'"
+smoke:
+  commands:
+    - "echo '[dry-run] plan Ditto official sample smoke test after source verification'"
+benchmark_inputs:
+  commands:
+    - "echo '[dry-run] map standard benchmark inputs after candidate disambiguation'"
+expected_outputs:
+  - outputs/ditto/smoke.mp4
+notes: Placeholder adapter; candidate source requires disambiguation before execution.

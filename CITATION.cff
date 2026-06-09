@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this benchmark harness or landscape matrix, please cite it."
+title: "Open Video Avatar Benchmark"
+version: "0.1.0"
+authors:
+  - family-names: "Kim"
+    given-names: "Albert"
